@@ -1,25 +1,9 @@
-import TerritoryTree from "@/components/TerritoryTree";
-import styles from "@/styles/Home.module.scss"
+import styles from '@/styles/Home.module.scss'
+import TerritoryTree from '@/components/TerritoryTree';
 
-const Home = ({ territories }) => {
-    return (
-        <ul className={styles.territory__list}>
-            {territories.map((t) => (
-                <TerritoryTree
-                    key={t.id}
-                    name={t.name}
-                    descendants={t.children}
-                />
-            ))}
-        </ul>
-    )
-}
+const BASE_URL = process.env.BASE_URL;
 
-export default Home;
-
-export const getServerSideProps = async () => {
-    const BASE_URL = process.env.BASE_URL;
-
+const getTerritories = async () => {
     const res = await fetch(`${BASE_URL}/Territories/All`);
     const { data } = await res.json();
 
@@ -52,9 +36,21 @@ export const getServerSideProps = async () => {
         territoriesReferences[parent].children.push(t);
     }
 
-    return {
-        props: {
-            territories: root,
-        }
-    }
+    return root;
+}
+
+export default async function Home() {
+    const territories = await getTerritories();
+
+    return (
+        <ul className={styles.territory__list}>
+            {territories.map((t) => (
+                <TerritoryTree
+                    key={t.id}
+                    name={t.name}
+                    descendants={t.children}
+                />
+            ))}
+        </ul>
+    )
 }
