@@ -23,13 +23,22 @@ export const getServerSideProps = async () => {
 
     let root = [];
     for (let t of territories) {
-        if (!t.parent) root.push(t);
+        if (!t.parent) {
+            root.push(t)
+            continue;
+        }
+
+        const parent = t.parent; 
+        if (!territoriesReferences[parent].children) {
+            territoriesReferences[parent].children = [];
+        }
+
+        territoriesReferences[parent].children.push(t);
     }
-    console.log(root);
 
     return {
         props: {
-            territories,
+            territories: root,
         }
     }
 }
