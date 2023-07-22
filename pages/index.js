@@ -20,7 +20,7 @@ export const getServerSideProps = async () => {
 
     return {
         props: {
-            territories: data,
+            territories,
         }
     }
 }
