@@ -1,14 +1,18 @@
 const TerritoryTree = ({ descendants }) => {
-    return descendants.map((t) => (
-        <li key={t.id}>
-            {t.name}
-            {t.children && (
-                <ul>
-                    <TerritoryTree descendants={t.children} />
-                </ul>
-            )}
-        </li>
-    ))
+    return (
+        <ul>
+            {descendants.map((t) => (
+                <li key={t.id}>
+                    {t.name}
+                    {t.children && (
+                        <ul>
+                            <TerritoryTree descendants={t.children} />
+                        </ul>
+                    )}
+                </li>
+            ))}
+        </ul>
+    )
 }
 
 const Home = ({ territories }) => {
@@ -19,10 +23,9 @@ const Home = ({ territories }) => {
             {territories.map((t) => (
                 <li key={t.id}>
                     {t.name}
-
-                    <ul>
+                    {t.children &&
                         <TerritoryTree descendants={t.children} />
-                    </ul>
+                    }
                 </li>
             ))}
         </ul>
