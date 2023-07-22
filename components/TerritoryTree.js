@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "@/styles/TerritoryTree.module.scss"
 
 const TerritoryTree = ({ name, descendants }) => {
     const [isCollapsed, setCollapsed] = useState(true);
@@ -10,7 +11,7 @@ const TerritoryTree = ({ name, descendants }) => {
                 <>
                     <button onClick={() => setCollapsed((s) => !s)}> {name}</button>
                     {!isCollapsed &&
-                        <ul>
+                        <ul className={styles.territory__item}>
                             {descendants.map((d) =>
                                 <TerritoryTree
                                     key={d.id}

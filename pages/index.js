@@ -1,10 +1,12 @@
 import TerritoryTree from "@/components/TerritoryTree";
+import styles from "@/styles/Home.module.scss"
 
 const Home = ({ territories }) => {
     console.log(territories)
 
+    console.log(styles)
     return (
-        <ul>
+        <ul className={styles.territory__item}>
             {territories.map((t) => (
                 <TerritoryTree
                     key={t.id}
