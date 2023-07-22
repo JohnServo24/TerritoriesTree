@@ -1,7 +1,7 @@
 const createHierarchy = (list) => {
     const listCopy = [...list]
 
-    // Unflattens the territories/Adds hierarchy by
+    // Unflattens the list/Adds hierarchy by
     // using object references or pointer magic
     const listReferences = listCopy
         .reduce((acc, curr) => ({
