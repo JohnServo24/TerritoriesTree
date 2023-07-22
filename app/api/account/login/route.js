@@ -1,14 +1,24 @@
 import { cookies } from 'next/dist/client/components/headers';
 import { NextResponse } from 'next/server';
 import request from "@/utils/request";
+import { NOT_FOUND } from '@/constants/httpStatuses';
+import InvalidCredentials from '@/errors/InvalidCredentials';
 
 const BASE_URL = `${process.env.BASE_URL}/Account/SignIn`;
 
 export async function POST(req, res) {
-    const { username, password } = await req.json();
+    try {
+        const { username, password } = await req.json();
 
-    const loginData = await request.post(BASE_URL, { username, password })
-    console.log(loginData)
+        const loginReq = await request.post(BASE_URL, { username, password })
 
-    return NextResponse.json({ message: "Hello" });
+        console.log(loginReq)
+        if (loginReq.code === NOT_FOUND) {
+            throw new InvalidCredentials(loginReq.body?.message);
+        }
+
+        return NextResponse.json({ message: "Hello" });
+    } catch (err) {
+        console.error(err);
+    }
 }
