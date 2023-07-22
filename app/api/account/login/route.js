@@ -7,7 +7,6 @@ import InvalidCredentials from '@/errors/InvalidCredentials';
 import serverErrorHandler from '@/utils/serverErrorHandler';
 import { setToken } from '@/utils/jwt';
 import { setCookie } from '@/utils/cookies';
-import { redirect } from 'next/navigation';
 
 const BASE_URL = `${process.env.BASE_URL}/Account/SignIn`;
 
