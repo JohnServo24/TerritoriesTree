@@ -20,13 +20,18 @@ const Territory = ({ name, descendants }) => {
 
     return (
         <li>
-            <button onClick={() => setCollapsed(name)}> {name}</button>
+            {!descendants && <>{name}</>}
             {descendants &&
-                <ul>
-                    {descendants.map((d) =>
-                        <Territory key={d.id} name={d.name} descendants={d.children} />
-                    )}
-                </ul>
+                <>
+                    <button onClick={() => setCollapsed((s) => !s)}> {name}</button>
+                    {!isCollapsed &&
+                        <ul>
+                            {descendants.map((d) =>
+                                <Territory key={d.id} name={d.name} descendants={d.children} />
+                            )}
+                        </ul>
+                    }
+                </>
             }
         </li>
     )
