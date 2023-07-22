@@ -30,6 +30,8 @@ export const getServerSideProps = async () => {
         name: t.name
     }));
 
+    // Unflattens the territories/Adds hierarchy by
+    // using object references or pointer magic
     const territoriesReferences = territories
         .reduce((acc, curr) => ({
             ...acc,
