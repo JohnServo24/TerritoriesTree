@@ -43,16 +43,11 @@ const Home = ({ territories }) => {
     return (
         <ul>
             {territories.map((t) => (
-                <li key={t.id}>
-                    {t.name}
-                    {t.children &&
-                        <ul>
-                            {t.children.map((c) =>
-                                <Territory key={c.id} name={c.name} descendants={c.children} />
-                            )}
-                        </ul>
-                    }
-                </li>
+                <Territory
+                    key={t.id}
+                    name={t.name}
+                    descendants={t.children}
+                />
             ))}
         </ul>
     )
