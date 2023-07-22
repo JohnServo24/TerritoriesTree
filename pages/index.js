@@ -1,5 +1,4 @@
 const Home = ({ territories }) => {
-    console.log(territories)
 }
 
 export default Home;
@@ -16,7 +15,17 @@ export const getServerSideProps = async () => {
         name: t.name
     }));
 
-    console.log(territories);
+    const territoriesReferences = territories
+        .reduce((acc, curr) => ({
+            ...acc,
+            [curr.id]: curr
+        }), {});
+
+    let root = [];
+    for (let t of territories) {
+        if (!t.parent) root.push(t);
+    }
+    console.log(root);
 
     return {
         props: {
