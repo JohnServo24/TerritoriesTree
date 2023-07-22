@@ -6,7 +6,7 @@ const Home = ({ territories }) => {
 
     console.log(styles)
     return (
-        <ul className={styles.territory__item}>
+        <ul className={styles.territory__list}>
             {territories.map((t) => (
                 <TerritoryTree
                     key={t.id}

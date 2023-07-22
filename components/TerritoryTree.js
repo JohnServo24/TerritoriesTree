@@ -9,12 +9,15 @@ const TerritoryTree = ({ name, descendants }) => {
             {!descendants && <>{name}</>}
             {descendants &&
                 <>
-                    <button onClick={() => setCollapsed((s) => !s)}>
+                    <button 
+                        className={styles["territory__item--button"]}
+                        onClick={() => setCollapsed((s) => !s)}
+                    >
                         <span>{isCollapsed ? "+ " : "- "}</span>
                         {name}
                     </button>
                     {!isCollapsed &&
-                        <ul className={styles.territory__item}>
+                        <ul className={styles.territory__list}>
                             {descendants.map((d) =>
                                 <TerritoryTree
                                     key={d.id}

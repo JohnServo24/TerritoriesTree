@@ -1,5 +1,11 @@
 .territory {
-    &__item {
+    &__list {
         list-style-type: none;
+    }
+
+    &__item {
+        &--button {
+            all: unset;
+        }
     }
 }
