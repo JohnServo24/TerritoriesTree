@@ -1,25 +1,19 @@
-import { useState } from "react";
+import Input from "./Input";
 
 const LoginForm = () => {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-
     const onSubmit = (e) => {
         e.preventDefault();
+
+        const username = e.target.username.value;
+        const password = e.target.password.value;
     }
 
     return (
         <form onSubmit={onSubmit}>
             Username:
-            <input
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-            />
+            <Input type="text" name="username" />
             Password:
-            <input
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
+            <Input type="password" name="password" />
 
             <button type="submit">Submit</button>
         </form>
