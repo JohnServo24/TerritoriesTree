@@ -20,7 +20,9 @@ const Home = ({ territories }) => {
                 <li key={t.id}>
                     {t.name}
 
-                    <TerritoryTree descendants={t.children} />
+                    <ul>
+                        <TerritoryTree descendants={t.children} />
+                    </ul>
                 </li>
             ))}
         </ul>
