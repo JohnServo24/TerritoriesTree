@@ -1,4 +1,11 @@
 const Home = ({ territories }) => {
+    console.log(territories)
+
+    return (
+        <ul>
+            {territories.map((t) => <li key={t.id}>{t.name}</li>)}
+        </ul>
+    )
 }
 
 export default Home;
@@ -28,7 +35,7 @@ export const getServerSideProps = async () => {
             continue;
         }
 
-        const parent = t.parent; 
+        const parent = t.parent;
         if (!territoriesReferences[parent].children) {
             territoriesReferences[parent].children = [];
         }
