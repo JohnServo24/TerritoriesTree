@@ -7,6 +7,7 @@ import InvalidCredentials from '@/errors/InvalidCredentials';
 import serverErrorHandler from '@/utils/serverErrorHandler';
 import { setToken } from '@/utils/jwt';
 import { setCookie } from '@/utils/cookies';
+import { redirect } from 'next/navigation';
 
 const BASE_URL = `${process.env.BASE_URL}/Account/SignIn`;
 
@@ -23,7 +24,7 @@ export async function POST(req) {
         const token = setToken({ username, password });
         setCookie(JWT_COOKIE_NAME, token);
 
-        return NextResponse.json({ message: "Hello" });
+        return NextResponse.json({ message: "Successfully logged in." });
     } catch (err) {
         return await serverErrorHandler(err);
     }

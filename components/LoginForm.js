@@ -1,15 +1,26 @@
 "use client"
+
 import Input from "@/components/Input";
+import { SUCCESS } from "@/constants/httpStatuses";
 import request from "@/utils/request";
+import { useRouter } from "next/navigation";
+
+const LOGIN_URL = '/api/account/login';
 
 const LoginForm = () => {
+    const router = useRouter();
+
     const onSubmit = async (e) => {
         e.preventDefault();
 
         const username = e.target.username.value;
         const password = e.target.password.value;
 
-        await request.post('/api/account/login', { username, password });
+        const { code } = await request.post(LOGIN_URL, { username, password });
+
+        if (code === SUCCESS) {
+            router.push('/');
+        }
     }
 
     return (

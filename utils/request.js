@@ -31,7 +31,7 @@ class Request {
             ...params
         });
 
-        return this.generateReturnValue(res)
+        return await this.generateReturnValue(res);
     }
 
     async post(url, body, params = {}) {
@@ -42,7 +42,7 @@ class Request {
             ...params
         });
 
-        return this.generateReturnValue(res);
+        return await this.generateReturnValue(res);
     }
 }
 
