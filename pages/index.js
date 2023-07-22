@@ -5,9 +5,7 @@ const TerritoryTree = ({ descendants }) => {
                 <li key={t.id}>
                     {t.name}
                     {t.children && (
-                        <ul>
-                            <TerritoryTree descendants={t.children} />
-                        </ul>
+                        <TerritoryTree descendants={t.children} />
                     )}
                 </li>
             ))}
