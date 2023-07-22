@@ -1,9 +1,28 @@
+const TerritoryTree = ({ descendants }) => {
+    return descendants.map((t) => (
+        <li key={t.id}>
+            {t.name}
+            {t.children && (
+                <ul>
+                    <TerritoryTree descendants={t.children} />
+                </ul>
+            )}
+        </li>
+    ))
+}
+
 const Home = ({ territories }) => {
     console.log(territories)
 
     return (
         <ul>
-            {territories.map((t) => <li key={t.id}>{t.name}</li>)}
+            {territories.map((t) => (
+                <li key={t.id}>
+                    {t.name}
+
+                    <TerritoryTree descendants={t.children} />
+                </li>
+            ))}
         </ul>
     )
 }
@@ -49,3 +68,7 @@ export const getServerSideProps = async () => {
         }
     }
 }
+
+// GET ALL ROOT NODES
+// From the root nodes, render the children
+// If the children has children, render those children
