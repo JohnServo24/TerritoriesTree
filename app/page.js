@@ -13,34 +13,41 @@ const getTerritories = async () => {
         name: t.name
     }));
 
+    return territories;
+}
+
+const createHierarchy = (list) => {
+    const listCopy = [...list]
+
     // Unflattens the territories/Adds hierarchy by
     // using object references or pointer magic
-    const territoriesReferences = territories
+    const listReferences = listCopy
         .reduce((acc, curr) => ({
             ...acc,
             [curr.id]: curr
         }), {});
 
     let root = [];
-    for (let t of territories) {
-        if (!t.parent) {
-            root.push(t)
+    for (let i of listCopy) {
+        if (!i.parent) {
+            root.push(i)
             continue;
         }
 
-        const parent = t.parent;
-        if (!territoriesReferences[parent].children) {
-            territoriesReferences[parent].children = [];
+        const parent = i.parent;
+        if (!listReferences[parent].children) {
+            listReferences[parent].children = [];
         }
 
-        territoriesReferences[parent].children.push(t);
+        listReferences[parent].children.push(i);
     }
 
     return root;
 }
 
 export default async function Home() {
-    const territories = await getTerritories();
+    const territoriesRaw = await getTerritories();
+    const territories = createHierarchy(territoriesRaw);
 
     return (
         <ul className={styles.territory__list}>

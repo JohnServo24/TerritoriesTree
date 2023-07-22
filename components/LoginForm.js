@@ -2,11 +2,15 @@
 import Input from "@/components/Input";
 
 const LoginForm = () => {
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
 
         const username = e.target.username.value;
         const password = e.target.password.value;
+
+        await fetch('/api/account/login', {
+            method: "POST"
+        })
     }
 
     return (
