@@ -3,6 +3,7 @@ import { NextResponse } from 'next/server';
 import request from "@/utils/request";
 import { NOT_FOUND } from '@/constants/httpStatuses';
 import InvalidCredentials from '@/errors/InvalidCredentials';
+import serverErrorHandler from '@/utils/serverErrorHandler';
 
 const BASE_URL = `${process.env.BASE_URL}/Account/SignIn`;
 
@@ -19,6 +20,6 @@ export async function POST(req, res) {
 
         return NextResponse.json({ message: "Hello" });
     } catch (err) {
-        console.error(err);
+        return await serverErrorHandler(err);
     }
 }
