@@ -10,6 +10,8 @@ import { isTokenExpired } from '@/utils/jwt';
 
 const LOGIN_URL = '/account/login';
 
+//TODO: ADD <main> ON ALL PAGES
+
 export default async function Home() {
     const territoriesRaw = await getTerritories();
     const territories = createHierarchy(territoriesRaw);
