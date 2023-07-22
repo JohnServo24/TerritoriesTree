@@ -1,5 +1,9 @@
+import TerritoryTree from "@/components/TerritoryTree";
+
 const Home = ({ territories }) => {
     console.log(territories)
+
+    return <TerritoryTree descendants={territories} />
 }
 
 export default Home;
@@ -16,11 +20,30 @@ export const getServerSideProps = async () => {
         name: t.name
     }));
 
-    console.log(territories);
+    const territoriesReferences = territories
+        .reduce((acc, curr) => ({
+            ...acc,
+            [curr.id]: curr
+        }), {});
+
+    let root = [];
+    for (let t of territories) {
+        if (!t.parent) {
+            root.push(t)
+            continue;
+        }
+
+        const parent = t.parent;
+        if (!territoriesReferences[parent].children) {
+            territoriesReferences[parent].children = [];
+        }
+
+        territoriesReferences[parent].children.push(t);
+    }
 
     return {
         props: {
-            territories,
+            territories: root,
         }
     }
 }
