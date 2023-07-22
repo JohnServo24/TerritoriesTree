@@ -5,24 +5,44 @@ class Request {
         }
     }
 
+    async generateReturnValue(res) {
+        const data = {
+            code: res.status,
+            text: res.statusText,
+            body: await res.json(),
+        }
+
+        if (res.status >= 400) {
+            return {
+                status: 'error',
+                ...data
+            }
+        }
+
+        return {
+            status: 'success',
+            ...data
+        }
+    }
+
     async get(url, params = {}) {
-        const resRaw = await fetch(url, {
+        const res = await fetch(url, {
             ...this.defaultParams,
             ...params
         });
 
-        return await resRaw.json();
+        return this.generateReturnValue(res)
     }
 
-    async post(url, body, params) {
-        const resRaw = await fetch(url, {
+    async post(url, body, params = {}) {
+        const res = await fetch(url, {
             method: "POST",
             body: JSON.stringify(body),
             ...this.defaultParams,
             ...params
-        })
+        });
 
-        return await resRaw.json();
+        return this.generateReturnValue(res);
     }
 }
 
