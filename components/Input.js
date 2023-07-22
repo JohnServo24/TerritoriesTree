@@ -14,6 +14,7 @@ const Input = ({ name, type }) => {
             type={type}
             value={value}
             onChange={handleChange}
+            autoComplete="on"
         />
     )
 }
