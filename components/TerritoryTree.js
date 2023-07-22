@@ -12,10 +12,10 @@ const TerritoryTree = ({ name, descendants }) => {
                     {!isCollapsed &&
                         <ul>
                             {descendants.map((d) =>
-                                <TerritoryTree 
-                                    key={d.id} 
-                                    name={d.name} 
-                                    descendants={d.children} 
+                                <TerritoryTree
+                                    key={d.id}
+                                    name={d.name}
+                                    descendants={d.children}
                                 />
                             )}
                         </ul>
