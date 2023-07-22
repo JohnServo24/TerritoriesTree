@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 
 import request from "@/utils/request";
 import { NOT_FOUND } from '@/constants/httpStatuses';
+import { JWT_COOKIE_NAME } from '@/constants/misc';
 import InvalidCredentials from '@/errors/InvalidCredentials';
 import serverErrorHandler from '@/utils/serverErrorHandler';
 import { setToken } from '@/utils/jwt';
@@ -20,7 +21,7 @@ export async function POST(req) {
         }
 
         const token = setToken({ username, password });
-        setCookie('token', token);
+        setCookie(JWT_COOKIE_NAME, token);
 
         return NextResponse.json({ message: "Hello" });
     } catch (err) {
