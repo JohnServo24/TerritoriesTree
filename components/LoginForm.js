@@ -1,5 +1,6 @@
 "use client"
 import Input from "@/components/Input";
+import request from "@/utils/request";
 
 const LoginForm = () => {
     const onSubmit = async (e) => {
@@ -8,9 +9,7 @@ const LoginForm = () => {
         const username = e.target.username.value;
         const password = e.target.password.value;
 
-        await fetch('/api/account/login', {
-            method: "POST"
-        })
+        await request.post('/api/account/login', { username, password });
     }
 
     return (
