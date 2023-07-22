@@ -14,9 +14,9 @@ export const getServerSideProps = async () => {
         id: Number(t.id),
         parent: t.parent ? Number(t.parent) : null,
         name: t.name
-    }))
+    }));
 
-    console.log(territories)
+    console.log(territories);
 
     return {
         props: {
