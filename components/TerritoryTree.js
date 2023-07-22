@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 const TerritoryTree = ({ descendants }) => {
+    const [isExpanded, setExpanded] = useState(false);
+
     return (
         <ul>
             {descendants.map((t) => (

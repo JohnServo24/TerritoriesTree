@@ -1,9 +1,18 @@
 import TerritoryTree from "@/components/TerritoryTree";
 
 const Home = ({ territories }) => {
-    console.log(territories)
-
-    return <TerritoryTree descendants={territories} />
+    return (
+        <ul>
+            {territories.map((t) => (
+                <li key={t.id}>
+                    {t.name}
+                    {t.children && (
+                        <TerritoryTree descendants={t.children} />
+                    )}
+                </li>
+            ))}
+        </ul>
+    )
 }
 
 export default Home;
