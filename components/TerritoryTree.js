@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const TerritoryTree = ({ descendants }) => {
+const TerritoryTree = ({ name, descendants }) => {
     const [isCollapsed, setCollapsed] = useState(true);
 
     return (
@@ -12,7 +12,11 @@ const TerritoryTree = ({ descendants }) => {
                     {!isCollapsed &&
                         <ul>
                             {descendants.map((d) =>
-                                <Territory key={d.id} name={d.name} descendants={d.children} />
+                                <TerritoryTree 
+                                    key={d.id} 
+                                    name={d.name} 
+                                    descendants={d.children} 
+                                />
                             )}
                         </ul>
                     }
@@ -20,7 +24,6 @@ const TerritoryTree = ({ descendants }) => {
             }
         </li>
     )
-}
 }
 
 export default TerritoryTree;
