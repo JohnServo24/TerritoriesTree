@@ -1,9 +1,18 @@
 import TerritoryTree from "@/components/TerritoryTree";
+import styles from "@/styles/Home.module.scss"
 
 const Home = ({ territories }) => {
-    console.log(territories)
-
-    return <TerritoryTree descendants={territories} />
+    return (
+        <ul className={styles.territory__list}>
+            {territories.map((t) => (
+                <TerritoryTree
+                    key={t.id}
+                    name={t.name}
+                    descendants={t.children}
+                />
+            ))}
+        </ul>
+    )
 }
 
 export default Home;
@@ -20,6 +29,8 @@ export const getServerSideProps = async () => {
         name: t.name
     }));
 
+    // Unflattens the territories/Adds hierarchy by
+    // using object references or pointer magic
     const territoriesReferences = territories
         .reduce((acc, curr) => ({
             ...acc,
