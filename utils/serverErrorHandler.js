@@ -13,7 +13,7 @@ const serverErrorHandler = async (err) => {
                 status: UNAUTHORIZED
             });
         default:
-            return NextResponse.json({ message: err.message ?? "Internal Server Error." }, { status: INTERNAL_SERVER_ERROR });
+            return NextResponse.json({ message: "Internal Server Error." }, { status: INTERNAL_SERVER_ERROR });
     }
 }
 
