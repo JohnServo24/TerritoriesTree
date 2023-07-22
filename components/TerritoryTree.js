@@ -1,16 +1,26 @@
+import { useState } from "react";
+
 const TerritoryTree = ({ descendants }) => {
+    const [isCollapsed, setCollapsed] = useState(true);
+
     return (
-        <ul>
-            {descendants.map((t) => (
-                <li key={t.id}>
-                    {t.name}
-                    {t.children && (
-                        <TerritoryTree descendants={t.children} />
-                    )}
-                </li>
-            ))}
-        </ul>
+        <li>
+            {!descendants && <>{name}</>}
+            {descendants &&
+                <>
+                    <button onClick={() => setCollapsed((s) => !s)}> {name}</button>
+                    {!isCollapsed &&
+                        <ul>
+                            {descendants.map((d) =>
+                                <Territory key={d.id} name={d.name} descendants={d.children} />
+                            )}
+                        </ul>
+                    }
+                </>
+            }
+        </li>
     )
+}
 }
 
 export default TerritoryTree;
