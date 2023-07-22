@@ -2,9 +2,6 @@ import TerritoryTree from "@/components/TerritoryTree";
 import styles from "@/styles/Home.module.scss"
 
 const Home = ({ territories }) => {
-    console.log(territories)
-
-    console.log(styles)
     return (
         <ul className={styles.territory__list}>
             {territories.map((t) => (
