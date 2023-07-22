@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react";
 
-const Input = ({ name, type }) => {
+const Input = ({ name, type, required }) => {
     const [value, setValue] = useState("");
 
     const handleChange = (e) => {
@@ -15,6 +15,8 @@ const Input = ({ name, type }) => {
             value={value}
             onChange={handleChange}
             autoComplete="on"
+            aria-required={required}
+            required
         />
     )
 }
