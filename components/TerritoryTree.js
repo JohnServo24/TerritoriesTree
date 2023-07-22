@@ -1,3 +1,4 @@
+"use client"
 import { useState } from "react";
 import styles from "@/styles/TerritoryTree.module.scss"
 
@@ -39,3 +40,4 @@ export default TerritoryTree;
 // From the root nodes, render the children
 // If the children has children, render those children
 // Repeat Repeat Repeat until we get to the bottom
+
