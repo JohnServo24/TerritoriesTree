@@ -12,7 +12,7 @@ const createHierarchy = (list) => {
     let root = [];
     for (let i of listCopy) {
         if (!i.parent) {
-            root.push(i)
+            root.push(i);
             continue;
         }
 
