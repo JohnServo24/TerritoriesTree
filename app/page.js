@@ -6,11 +6,12 @@ import { JWT_COOKIE_NAME } from '@/constants/misc';
 import getTerritories from '@/utils/getTerritories';
 import createHierarchy from '@/utils/createHierarchy';
 import { getCookie } from '@/utils/cookies';
-import { isTokenExpired } from '@/utils/jwt';
+import { verifyToken } from '@/utils/jwt';
 
 const LOGIN_URL = '/account/login';
 
 //TODO: ADD <main> ON ALL PAGES
+//TODO: Secure cookies
 
 export default async function Home() {
     const territoriesRaw = await getTerritories();
@@ -18,7 +19,7 @@ export default async function Home() {
 
     const token = getCookie(JWT_COOKIE_NAME);
 
-    if (!token || isTokenExpired(token.value)) {
+    if (!token || !verifyToken(token.value)) {
         redirect(LOGIN_URL);
     }
 
