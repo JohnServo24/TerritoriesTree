@@ -1,5 +1,6 @@
 "use client"
 
+import styles from "@/styles/LoginForm.module.scss";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
 import useLogin from "@/features/auth/hooks/useLogin";
@@ -13,7 +14,7 @@ const LoginForm = () => {
     return (
         <>
             {message && <p>{message}</p>}
-            <form onSubmit={onFormSubmit}>
+            <form className={styles.form} onSubmit={onFormSubmit}>
                 <label htmlFor={USERNAME_LABEL}>Username:</label>
                 <Input 
                     id={USERNAME_LABEL}
