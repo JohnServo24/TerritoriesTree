@@ -1,4 +1,5 @@
 @import "@/styles/_vars";
+@import "@/components/Button/Button.module.scss";
 
 .form {
     display: flex;
@@ -8,4 +9,9 @@
 
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border-radius: 5px;
+
+    &__button {
+        @extend .button;
+        align-self: center;
+    }
 }

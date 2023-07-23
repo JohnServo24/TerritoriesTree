@@ -10,7 +10,12 @@ const Form = ({
         <form className={className ?? styles.form} onSubmit={onSubmit}>
             {children}
 
-            <Button type="submit">Submit</Button>
+            <Button
+                className={styles.form__button}
+                type="submit"
+            >
+                Submit
+            </Button>
         </form>
     )
 }
