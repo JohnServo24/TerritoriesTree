@@ -10,7 +10,6 @@ import { verifyToken } from '@/utils/jwt';
 
 const LOGIN_URL = '/account/login';
 
-//TODO: ADD <main> ON ALL PAGES
 //TODO: Secure cookies
 
 export default async function Home() {
@@ -18,8 +17,6 @@ export default async function Home() {
     const territories = createHierarchy(territoriesRaw);
 
     const token = getCookie(JWT_COOKIE_NAME);
-
-    console.log(verifyToken(token.value))
 
     if (!token || !verifyToken(token.value)) {
         redirect(LOGIN_URL);
