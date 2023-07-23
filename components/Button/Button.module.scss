@@ -1,0 +1,10 @@
+@import "@/styles/vars";
+
+.button {
+    font-size: 20px;
+    border: 0;
+    background-color: $PURPLE;
+    color: $WHITE;
+    border-radius: 3px;
+    padding: 10px 40px;
+}
