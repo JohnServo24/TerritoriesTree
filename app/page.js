@@ -10,8 +10,6 @@ import { verifyToken } from '@/utils/jwt';
 
 const LOGIN_URL = '/account/login';
 
-//TODO: Secure cookies
-
 export default async function Home() {
     const territoriesRaw = await getTerritories();
     const territories = createHierarchy(territoriesRaw);
