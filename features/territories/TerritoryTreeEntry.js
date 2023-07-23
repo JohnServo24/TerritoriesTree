@@ -1,8 +1,8 @@
 "use client"
 import { useState } from "react";
-import styles from "@/styles/TerritoryTree.module.scss"
+import styles from "@/styles/TerritoryTreeEntry.module.scss"
 
-const TerritoryTree = ({ name, descendants }) => {
+const TerritoryTreeEntry = ({ name, descendants }) => {
     const [isCollapsed, setCollapsed] = useState(true);
 
     return (
@@ -20,7 +20,7 @@ const TerritoryTree = ({ name, descendants }) => {
                     {!isCollapsed &&
                         <ul className={styles.territory__list}>
                             {descendants.map((d) =>
-                                <TerritoryTree
+                                <TerritoryTreeEntry
                                     key={d.id}
                                     name={d.name}
                                     descendants={d.children}
@@ -34,7 +34,7 @@ const TerritoryTree = ({ name, descendants }) => {
     )
 }
 
-export default TerritoryTree;
+export default TerritoryTreeEntry;
 
 // GET ALL ROOT NODES
 // From the root nodes, render the children
