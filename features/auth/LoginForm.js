@@ -4,6 +4,7 @@ import styles from "@/styles/LoginForm.module.scss";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
 import useLogin from "@/features/auth/hooks/useLogin";
+import Label from "@/components/Label";
 
 const USERNAME_LABEL = 'username';
 const PASSWORD_LABEL = 'password';
@@ -15,29 +16,23 @@ const LoginForm = () => {
         <>
             {message && <p>{message}</p>}
             <form className={styles.form} onSubmit={onFormSubmit}>
-                <label 
-                    htmlFor={USERNAME_LABEL}
-                    className={styles.form__label}
-                >
+                <Label htmlFor={USERNAME_LABEL} >
                     Username
-                </label>
-                <Input 
+                </Label>
+                <Input
                     id={USERNAME_LABEL}
-                    type="text" 
-                    name="username" 
-                    required 
+                    type="text"
+                    name="username"
+                    required
                 />
-                <label 
-                    htmlFor={PASSWORD_LABEL}
-                    className={styles.form__label}
-                >
+                <Label htmlFor={PASSWORD_LABEL}>
                     Password
-                </label>
-                <Input 
+                </Label>
+                <Input
                     id={PASSWORD_LABEL}
-                    type="password" 
-                    name="password" 
-                    required 
+                    type="password"
+                    name="password"
+                    required
                 />
 
                 <Button type="submit">Submit</Button>
