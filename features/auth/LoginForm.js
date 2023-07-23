@@ -1,10 +1,10 @@
 "use client"
 
-import styles from "@/styles/LoginForm.module.scss";
+import Form from "@/components/Form";
 import Button from "@/components/Button";
 import Input from "@/components/Input";
-import useLogin from "@/features/auth/hooks/useLogin";
 import Label from "@/components/Label";
+import useLogin from "@/features/auth/hooks/useLogin";
 
 const USERNAME_LABEL = 'username';
 const PASSWORD_LABEL = 'password';
@@ -15,7 +15,7 @@ const LoginForm = () => {
     return (
         <>
             {message && <p>{message}</p>}
-            <form className={styles.form} onSubmit={onFormSubmit}>
+            <Form onSubmit={onFormSubmit}>
                 <Label htmlFor={USERNAME_LABEL} >
                     Username
                 </Label>
@@ -34,9 +34,7 @@ const LoginForm = () => {
                     name="password"
                     required
                 />
-
-                <Button type="submit">Submit</Button>
-            </form>
+            </Form>
         </>
     )
 }
