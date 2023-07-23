@@ -1,6 +1,7 @@
 "use client"
 
 import styles from "./LogOutButton.module.scss";
+
 import Button from "@/components/Button"
 import useLogout from "@/features/auth/hooks/useLogout";
 

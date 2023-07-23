@@ -1,8 +1,9 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+
 import { SUCCESS } from "@/constants/httpStatuses";
-import request from "@/utils/request";
 import { HOME_URL } from "@/constants/urls";
+import request from "@/utils/request";
 
 const LOGIN_URL = '/api/account/login';
 
