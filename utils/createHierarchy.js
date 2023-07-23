@@ -1,5 +1,5 @@
 const createHierarchy = (list) => {
-    const listCopy = [...list]
+    const listCopy = [...list];
 
     // Unflattens the list/Adds hierarchy by
     // using object references or pointer magic
@@ -12,7 +12,7 @@ const createHierarchy = (list) => {
     let root = [];
     for (let i of listCopy) {
         if (!i.parent) {
-            root.push(i)
+            root.push(i);
             continue;
         }
 

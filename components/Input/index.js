@@ -1,7 +1,8 @@
 "use client"
 import { useState } from "react";
+import styles from "@/components/Input/Input.module.scss";
 
-const Input = ({ name, type, id, required }) => {
+const Input = ({ name, type, id, required, className }) => {
     const [value, setValue] = useState("");
 
     const handleChange = (e) => {
@@ -11,12 +12,13 @@ const Input = ({ name, type, id, required }) => {
     return (
         <input
             id={id}
+            className={className ?? styles.input}
             name={name}
             type={type}
             value={value}
             onChange={handleChange}
-            autoComplete="on"
             aria-required={required}
+            autoComplete="on"
             required
         />
     )
