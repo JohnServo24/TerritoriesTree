@@ -1,0 +1,24 @@
+@import "@/styles/_vars";
+
+.form {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 5px;
+
+    padding: 20px;
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        margin-bottom: 15px;
+    }
+
+    &__heading {
+        font-size: 20px;
+        text-align: center;
+        color: $PURPLE;
+        margin-top: -15px;
+    }
+}

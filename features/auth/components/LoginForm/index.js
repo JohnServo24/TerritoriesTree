@@ -1,7 +1,6 @@
 "use client"
 
 import Form from "@/components/Form";
-import Button from "@/components/Button";
 import Input from "@/components/Input";
 import Label from "@/components/Label";
 import useLogin from "@/features/auth/hooks/useLogin";
