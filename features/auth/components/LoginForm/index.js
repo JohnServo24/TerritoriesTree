@@ -1,4 +1,5 @@
 "use client"
+import styles from "./LoginForm.module.scss";
 
 import Form from "@/components/Form";
 import Input from "@/components/Input";
@@ -9,12 +10,16 @@ const USERNAME_LABEL = 'username';
 const PASSWORD_LABEL = 'password';
 
 const LoginForm = () => {
-    const { onFormSubmit, message } = useLogin();
+    const { onFormSubmit, message, status, isLoading } = useLogin();
 
     return (
         <>
-            {message && <p>{message}</p>}
-            <Form onSubmit={onFormSubmit}>
+            {(message && !isLoading) && (
+                <div className={styles[`login__message--${status}`]} >
+                    <p> {message} </p>
+                </div>
+            )}
+            <Form onSubmit={onFormSubmit} isLoading={isLoading}>
                 <Label htmlFor={USERNAME_LABEL} >
                     Username
                 </Label>

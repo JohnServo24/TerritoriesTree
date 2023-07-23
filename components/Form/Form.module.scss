@@ -10,5 +10,10 @@
     &__button {
         @extend .button;
         align-self: center;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
     }
 }
