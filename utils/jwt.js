@@ -9,5 +9,5 @@ export const setToken = (data) => {
 
 // Returns null instead of throwing an error for flexibility
 export const verifyToken = (token) => {
-    return jwt.verify(token, JWT_SECRET, (err) => !err ? true : null);
+    return jwt.verify(token, JWT_SECRET, (err, val) => !err ? val : null);
 }
