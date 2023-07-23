@@ -6,7 +6,7 @@ Staging: https://territories-tree-staging.johnservo.com
 
 ## Potential Questions
 
-### Why are the API routes prefixed with `/api`? (e.g `/api/account/login`, `/api/account/logut`)
+### Why are the API routes prefixed with `/api`? (e.g `/api/account/login`)
 I completely understand that the APIs should not have a `/api` prefx (e.g `/account/login`) as per the instructions. Unfortunately, due to NextJS's conventions, we are required to prefix our APIs with `/api` :(
 
 ### How do I get started?
