@@ -34,7 +34,7 @@ class Request {
         return await this.generateReturnValue(res);
     }
 
-    async post(url, body, params = {}) {
+    async post(url, body = {}, params = {}) {
         const res = await fetch(url, {
             method: "POST",
             body: JSON.stringify(body),

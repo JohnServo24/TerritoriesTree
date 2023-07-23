@@ -13,3 +13,11 @@ export const setCookie = (name, value) => {
 export const getCookie = (name) => {
     return cookies().get(name);
 }
+
+export const destroyCookie = (name) => {
+    cookies().set({
+        name,
+        value: '',
+        maxAge: 0
+    });
+}
