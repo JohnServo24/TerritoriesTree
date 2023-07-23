@@ -23,7 +23,6 @@ export default async function Login() {
                     src="/logo.svg"
                     width={200}
                     height={200}
-                    className={styles.form__logo}
                 />
                 <h1 className={styles.form__heading}>
                     TerritoriesTree
