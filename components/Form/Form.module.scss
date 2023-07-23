@@ -1,0 +1,19 @@
+@import "@/styles/_vars";
+@import "@/components/Button/Button.module.scss";
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    &__button {
+        @extend .button;
+        align-self: center;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+    }
+}

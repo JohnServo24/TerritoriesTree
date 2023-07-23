@@ -1,0 +1,40 @@
+@import "@/styles/_vars";
+@import "@/features/territories/territory-common";
+
+.entry {
+    &__button {
+        all: unset;
+        cursor: pointer;
+    }
+
+    &__title, &__symbol {
+        font-size: 24px;
+        color: $LAVENDER;
+    }
+
+    &__title {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 12px;
+
+        &--parent {
+            @extend .entry__title;
+
+            display: inline;
+            color: $PURPLE;
+
+            &:hover {
+                transition: 0.2s;
+                color: $LAVENDER;
+            }
+        }
+
+        &--expanded {
+            @extend .entry__title--parent;
+
+            display: inline;
+            text-decoration: underline;
+        }
+    }
+}

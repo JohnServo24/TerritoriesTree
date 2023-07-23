@@ -1,5 +1,7 @@
 "use client"
 
+import styles from "@/components/Button/Button.module.scss";
+
 const Button = ({
     children,
     className,
@@ -8,7 +10,7 @@ const Button = ({
 }) => {
     return (
         <button
-            className={className}
+            className={className ?? styles.button}
             type={type}
             onClick={onClick}
         >

@@ -1,0 +1,25 @@
+@import "@/styles/vars";
+
+.login {
+    &__message {
+        text-align: center;
+        margin: 10px;
+        padding: 10px;
+        font-size: 14px;
+        border-radius: 5px;
+    }
+
+    &__message--error {
+        @extend .login__message;
+
+        background-color: $RED;
+        color: $DARK-RED;
+    }
+
+    &__message--success {
+        @extend .login__message;
+
+        background-color: $GREEN;
+        color: $DARK-GREEN;
+    }
+}
