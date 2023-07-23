@@ -1,3 +1,5 @@
+@import 'vars';
+
 .form {
     display: flex;
     flex-direction: column;
@@ -6,4 +8,10 @@
 
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border-radius: 5px;
+
+    &__label {
+        font-size: 12px;
+        font-weight: 500;
+        color: $DARK-GRAY;
+    }
 }

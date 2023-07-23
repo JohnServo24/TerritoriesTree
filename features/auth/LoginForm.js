@@ -15,14 +15,24 @@ const LoginForm = () => {
         <>
             {message && <p>{message}</p>}
             <form className={styles.form} onSubmit={onFormSubmit}>
-                <label htmlFor={USERNAME_LABEL}>Username:</label>
+                <label 
+                    htmlFor={USERNAME_LABEL}
+                    className={styles.form__label}
+                >
+                    Username
+                </label>
                 <Input 
                     id={USERNAME_LABEL}
                     type="text" 
                     name="username" 
                     required 
                 />
-                <label htmlFor={PASSWORD_LABEL}>Password:</label>
+                <label 
+                    htmlFor={PASSWORD_LABEL}
+                    className={styles.form__label}
+                >
+                    Password
+                </label>
                 <Input 
                     id={PASSWORD_LABEL}
                     type="password" 
