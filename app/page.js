@@ -19,6 +19,8 @@ export default async function Home() {
 
     const token = getCookie(JWT_COOKIE_NAME);
 
+    console.log(verifyToken(token.value))
+
     if (!token || !verifyToken(token.value)) {
         redirect(LOGIN_URL);
     }
