@@ -1,5 +1,6 @@
 "use client"
 
+import Button from "@/components/Button";
 import Input from "@/components/Input";
 import useLogin from "./hooks/useLogin";
 
@@ -15,7 +16,7 @@ const LoginForm = () => {
                 Password:
                 <Input type="password" name="password" required />
 
-                <button type="submit">Submit</button>
+                <Button type="submit">Submit</Button>
             </form>
         </>
     )

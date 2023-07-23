@@ -4,6 +4,7 @@ import TerritoryTree from '@/features/territories/TerritoryTree';
 import { JWT_COOKIE_NAME } from '@/constants/misc';
 import { getCookie } from '@/utils/cookies';
 import { verifyToken } from '@/utils/jwt';
+import LogOutButton from '@/features/auth/LogOutButton';
 
 const LOGIN_URL = '/account/login';
 
@@ -14,5 +15,10 @@ export default async function Home() {
         redirect(LOGIN_URL);
     }
 
-    return <TerritoryTree />
+    return (
+        <>
+            <LogOutButton />
+            <TerritoryTree />
+        </>
+    )
 }
