@@ -7,6 +7,7 @@ frontend:
     build:
       commands:
         - (env | grep -e BASE_URL >> .env) || true
+        - (env | grep -e JWT_SECRET >> .env) || true
         - (env | grep -e NEXT_PUBLIC_ >> .env) || true
         - yarn run build
   artifacts:
