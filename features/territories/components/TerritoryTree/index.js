@@ -15,6 +15,7 @@ const TerritoryTree = async () => {
                     key={t.id}
                     name={t.name}
                     descendants={t.children}
+                    leftSpacing={20}
                 />
             ))}
         </ul>

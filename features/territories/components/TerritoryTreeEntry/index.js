@@ -2,11 +2,11 @@
 import { useState } from "react";
 import styles from "./TerritoryTreeEntry.module.scss"
 
-const TerritoryTreeEntry = ({ name, descendants }) => {
+const TerritoryTreeEntry = ({ name, descendants, leftSpacing }) => {
     const [isCollapsed, setCollapsed] = useState(true);
 
     return (
-        <li>
+        <li style={{ marginLeft: leftSpacing }}>
             {!descendants && (
                 <span className={styles.entry__title}>
                     <span className={styles.entry__symbol}>
@@ -25,7 +25,7 @@ const TerritoryTreeEntry = ({ name, descendants }) => {
                             {isCollapsed ? "+ " : "- "}
                         </span>
                         <span className={styles[
-                            (isCollapsed 
+                            (isCollapsed
                                 ? "entry__title--parent"
                                 : "entry__title--expanded"
                             )
@@ -40,6 +40,7 @@ const TerritoryTreeEntry = ({ name, descendants }) => {
                                     key={d.id}
                                     name={d.name}
                                     descendants={d.children}
+                                    leftSpacing={leftSpacing + 5}
                                 />
                             )}
                         </ul>
