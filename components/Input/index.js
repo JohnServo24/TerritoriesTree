@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react";
-import styles from "@/styles/Input.module.scss";
+import styles from "@/components/Input/Input.module.scss";
 
 const Input = ({ name, type, id, required, className }) => {
     const [value, setValue] = useState("");

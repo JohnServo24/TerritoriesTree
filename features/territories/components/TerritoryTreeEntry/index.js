@@ -1,6 +1,6 @@
 "use client"
 import { useState } from "react";
-import styles from "@/styles/TerritoryTreeEntry.module.scss"
+import styles from "./TerritoryTreeEntry.module.scss"
 
 const TerritoryTreeEntry = ({ name, descendants }) => {
     const [isCollapsed, setCollapsed] = useState(true);
