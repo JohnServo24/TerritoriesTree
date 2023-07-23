@@ -2,6 +2,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { SUCCESS } from "@/constants/httpStatuses";
 import request from "@/utils/request";
+import { HOME_URL } from "@/constants/urls";
 
 const LOGIN_URL = '/api/account/login';
 
@@ -18,7 +19,7 @@ const useLogin = () => {
         const { code, body } = await request.post(LOGIN_URL, { username, password });
 
         if (code === SUCCESS) {
-            router.push('/');
+            router.push(HOME_URL);
         }
 
         setMessage(body.message);
