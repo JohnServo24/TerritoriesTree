@@ -1,6 +1,6 @@
 import { redirect } from 'next/navigation';
 
-import TerritoryTree from '@/components/TerritoryTree';
+import TerritoryTree from '@/features/territories/TerritoryTree';
 import { JWT_COOKIE_NAME } from '@/constants/misc';
 import { getCookie } from '@/utils/cookies';
 import { verifyToken } from '@/utils/jwt';

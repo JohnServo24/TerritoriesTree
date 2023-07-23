@@ -1,5 +1,5 @@
 import styles from '@/styles/TerritoryTree.module.scss'
-import TerritoryTreeEntry from '@/components/TerritoryTreeEntry';
+import TerritoryTreeEntry from '@/features/territories/TerritoryTreeEntry';
 
 import getTerritories from '@/utils/getTerritories';
 import createHierarchy from '@/utils/createHierarchy';
