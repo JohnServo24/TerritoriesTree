@@ -1,43 +1,24 @@
-"use client"
-import { useState } from "react";
-import styles from "@/styles/TerritoryTree.module.scss"
+import styles from '@/styles/TerritoryTree.module.scss'
+import TerritoryTreeEntry from '@/components/TerritoryTreeEntry';
 
-const TerritoryTree = ({ name, descendants }) => {
-    const [isCollapsed, setCollapsed] = useState(true);
+import getTerritories from '@/utils/getTerritories';
+import createHierarchy from '@/utils/createHierarchy';
+
+const TerritoryTree = async () => {
+    const territoriesRaw = await getTerritories();
+    const territories = createHierarchy(territoriesRaw);
 
     return (
-        <li>
-            {!descendants && <>{name}</>}
-            {descendants &&
-                <>
-                    <button 
-                        className={styles["territory__item--button"]}
-                        onClick={() => setCollapsed((s) => !s)}
-                    >
-                        <span>{isCollapsed ? "+ " : "- "}</span>
-                        {name}
-                    </button>
-                    {!isCollapsed &&
-                        <ul className={styles.territory__list}>
-                            {descendants.map((d) =>
-                                <TerritoryTree
-                                    key={d.id}
-                                    name={d.name}
-                                    descendants={d.children}
-                                />
-                            )}
-                        </ul>
-                    }
-                </>
-            }
-        </li>
+        <ul className={styles.territory__list}>
+            {territories.map((t) => (
+                <TerritoryTreeEntry
+                    key={t.id}
+                    name={t.name}
+                    descendants={t.children}
+                />
+            ))}
+        </ul>
     )
 }
 
 export default TerritoryTree;
-
-// GET ALL ROOT NODES
-// From the root nodes, render the children
-// If the children has children, render those children
-// Repeat Repeat Repeat until we get to the bottom
-
