@@ -1,6 +1,6 @@
 import styles from "./Index.module.scss";
-import LogOutButton from '@/features/auth/components/LogOutButton';
 import Image from "next/image";
+import LogOutButton from '@/features/auth/components/LogOutButton';
 
 export default function Layout({ children }) {
     return (

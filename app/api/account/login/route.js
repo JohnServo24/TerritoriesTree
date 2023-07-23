@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
 
-import request from "@/utils/request";
 import { NOT_FOUND } from '@/constants/httpStatuses';
 import { JWT_COOKIE_NAME } from '@/constants/misc';
 import InvalidCredentials from '@/errors/InvalidCredentials';
+import request from "@/utils/request";
 import serverErrorHandler from '@/utils/serverErrorHandler';
 import { setToken } from '@/utils/jwt';
 import { setCookie } from '@/utils/cookies';

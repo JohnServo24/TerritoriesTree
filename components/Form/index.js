@@ -1,6 +1,6 @@
 import styles from "@/components/Form/Form.module.scss";
 import Button from "@/components/Button";
-import Spinner from "../Spinner";
+import Spinner from "@/components/Spinner";
 
 const Form = ({
     children,
