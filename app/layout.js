@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-    title: 'Territories Tree',
+    title: 'TerritoriesTree',
     description: 'A list of Philippine territories and their subterritories',
 }
 
