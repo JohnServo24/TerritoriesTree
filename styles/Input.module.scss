@@ -1,0 +1,14 @@
+@import 'vars';
+
+.input {
+    width: 30ch;
+    font-size: 20px;
+    margin-bottom: 15px;
+    padding: 5px;
+    border: 1px solid $GRAY;
+    border-radius: 3px;
+
+    &:focus {
+        outline-color: $PURPLE;
+    }
+}
