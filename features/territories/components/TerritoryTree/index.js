@@ -9,7 +9,7 @@ const TerritoryTree = async () => {
     const territories = createHierarchy(territoriesRaw);
 
     return (
-        <ul className={styles.territory__list}>
+        <ul className={styles.list}>
             {territories.map((t) => (
                 <TerritoryTreeEntry
                     key={t.id}

@@ -7,18 +7,34 @@ const TerritoryTreeEntry = ({ name, descendants }) => {
 
     return (
         <li>
-            {!descendants && <>{name}</>}
+            {!descendants && (
+                <span className={styles.entry__title}>
+                    <span className={styles.entry__symbol}>
+                        &#9584;
+                    </span>
+                    {name}
+                </span>
+            )}
             {descendants &&
                 <>
-                    <button 
-                        className={styles["territory__item--button"]}
+                    <button
+                        className={styles.entry__button}
                         onClick={() => setCollapsed((s) => !s)}
                     >
-                        <span>{isCollapsed ? "+ " : "- "}</span>
-                        {name}
+                        <span className={styles.entry__symbol}>
+                            {isCollapsed ? "+ " : "- "}
+                        </span>
+                        <span className={styles[
+                            (isCollapsed 
+                                ? "entry__title--parent"
+                                : "entry__title--expanded"
+                            )
+                        ]}>
+                            {name}
+                        </span>
                     </button>
                     {!isCollapsed &&
-                        <ul className={styles.territory__list}>
+                        <ul className={styles.list}>
                             {descendants.map((d) =>
                                 <TerritoryTreeEntry
                                     key={d.id}

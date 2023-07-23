@@ -1,12 +1,3 @@
-.territory {
-    &__list {
-        list-style-type: none;
-    }
-
-    &__item {
-        &--button {
-            all: unset;
-            cursor: pointer;
-        }
-    }
+.list {
+    list-style-type: none;
 }
