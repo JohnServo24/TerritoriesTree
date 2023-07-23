@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react";
 
-const Input = ({ name, type, required }) => {
+const Input = ({ name, type, id, required }) => {
     const [value, setValue] = useState("");
 
     const handleChange = (e) => {
@@ -10,6 +10,7 @@ const Input = ({ name, type, required }) => {
 
     return (
         <input
+            id={id}
             name={name}
             type={type}
             value={value}
