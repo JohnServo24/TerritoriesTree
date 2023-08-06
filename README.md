@@ -1,9 +1,5 @@
 # TerritoriesTree
 
-Prod: https://territories-tree.johnservo.com
-
-Staging: https://territories-tree-staging.johnservo.com
-
 ## Potential Questions
 
 ### Why are the API routes prefixed with `/api`? (e.g `/api/account/login`)
